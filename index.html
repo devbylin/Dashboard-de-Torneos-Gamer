@@ -6,21 +6,119 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard de Torneos Gamer</title>
     <link rel="stylesheet" href="estilos.css">
-    <script src="dashboard.js"></script>
 </head>
 
 <body>
-    <!-- Encabezado Principal -->
-     <h1>Dashboard de Torneos Gamer</h1>
-    <header>
-        <!-- Actividad 1. Crear el título "Dashboard de Torneos Gamer" -->
+    <!-- ============================================ -->
+    <!-- ENCABEZADO PRINCIPAL -->
+    <!-- ============================================ -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo-container">
+                <span class="logo-icon">🎮</span>
+                <h1 class="header-title">Dashboard de Torneos Gamer</h1>
+            </div>
+            <div class="header-stats">
+                <div class="stat-badge">
+                    <span class="stat-number" id="totalTorneos">0</span>
+                    <span class="stat-label">Torneos</span>
+                </div>
+            </div>
+        </div>
     </header>
-    <!-- Contenido Principal -->
-    <main>
-        <!-- Actividad 1. Formulario de Registro (15 puntos) -->
-        <!-- Actividad 2. Crear la tabla (10 puntos) -->
+
+    <!-- ============================================ -->
+    <!-- CONTENIDO PRINCIPAL -->
+    <!-- ============================================ -->
+    <main class="main-content">
+
+        <!-- ============================================ -->
+        <!-- ACTIVIDAD 1: FORMULARIO DE REGISTRO (15 PUNTOS) -->
+        <!-- ============================================ -->
+        <section class="card formulario-card">
+            <div class="card-header">
+                <h2>Registrar Torneo</h2>
+                <p class="card-subtitle">Ingresa los datos del nuevo torneo</p>
+            </div>
+
+            <form id="formJugador" class="formulario" onsubmit="return false;">
+                <div class="form-group">
+                    <label for="txtNombre">Nombre del Torneo</label>
+                    <input type="text" id="txtNombre" placeholder="Ej: Torneo Valorant Pro" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="txtParticipantes">Participante</label>
+                    <input type="number" id="txtParticipantes" placeholder="Ej: 12" min="1" max="99">
+                </div>
+
+                <div class="form-group">
+                    <label for="categoria">Categoria</label>
+                    <select id="categoria">
+                        <option value=""required>Seleccionar</option>
+                        <option value="Lucha">Lucha</option>
+                        <option value="Estrategia">Estrategia</option>
+                        <option value="Arcade">Arcade</option>
+                        <option value="Deporte y Aventura">Deporte y Aventura</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="txtInscripcion">Valor de inscripcion</label>
+                    <input type="number" id="txtInscripcion" placeholder= "Ej: $20" min="1">
+                 </div>
+
+                <div class="form-group">
+                    <label for="txtEmail">Email</label>
+                    <input type="text" id="txtEmail" placeholder="Ej: alguien@gmail.com">
+                
+                 </div>
+
+                <button type="button" class="btn-primary" onclick="registrarTorneo();">
+                    <span class="btn-icon">➕</span> Registrar Torneo
+                </button>
+            </form>
+
+            <div id="mensajeFormulario" class="mensaje-formulario"></div>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- ACTIVIDAD 2: TABLA DE JUGADORES (10 PUNTOS) -->
+        <!-- ============================================ -->
+         <section class="card tabla-card">
+            <div class="card-header">
+                <h2>🏆 Lista de Torneos</h2>
+                <p class="card-subtitle">Torneos registrados en el sistema</p>
+            </div>
+
+            <div class="table-wrapper">
+                <!-- ✅ CORREGIDO: id="tablaTorneos" para la tabla -->
+                <table id="tablaTorneos" class="tabla">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Nombre</th>
+                            <th>Categoría</th>
+                            <th>Participantes</th>
+                            <th>Valor Insc.</th>
+                            <th>Email</th>
+                            <th>Recaudación</th>
+                        </tr>
+                    </thead>
+                   
+                    <tbody id="tbodyTorneos">
+                        <!-- Los datos se cargarán dinámicamente desde JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
     </main>
-    <!-- Enlace al archivo de JavaScript de la evaluación -->
+
+    <!-- ============================================ -->
+    <!-- ENLACE AL ARCHIVO DE JAVASCRIPT -->
+    <!-- ============================================ -->
+    <script src="dashboard.js"></script>
 </body>
 
 </html>
