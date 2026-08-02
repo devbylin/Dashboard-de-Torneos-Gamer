@@ -31,6 +31,46 @@
     <!-- CONTENIDO PRINCIPAL -->
     <!-- ============================================ -->
     <main class="main-content">
+            <!-- ============================================ -->
+            <!-- SECCIÓN DE ESTADÍSTICAS -->
+            <!-- ============================================ -->
+
+        <section class="card estadisticas-card">
+        <div class="card-header">
+            <h2>📊 Estadísticas de Torneos</h2>
+            <p class="card-subtitle">Resumen general de todos los torneos</p>
+        </div>
+        <div class="estadisticas-grid">
+            <div class="estadistica-item">
+                <span class="estadistica-icono">🏆</span>
+                <div class="estadistica-info">
+                    <span class="estadistica-valor" id="totalTorneosStat">0</span>
+                    <span class="estadistica-etiqueta">Total Torneos</span>
+                </div>
+            </div>
+            <div class="estadistica-item">
+                <span class="estadistica-icono">👥</span>
+                <div class="estadistica-info">
+                    <span class="estadistica-valor" id="totalParticipantesStat">0</span>
+                    <span class="estadistica-etiqueta">Total Participantes</span>
+                </div>
+            </div>
+            <div class="estadistica-item">
+                <span class="estadistica-icono">💰</span>
+                <div class="estadistica-info">
+                    <span class="estadistica-valor" id="totalRecaudacionStat">$0</span>
+                    <span class="estadistica-etiqueta">Recaudación Total</span>
+                </div>
+            </div>
+            <div class="estadistica-item">
+                <span class="estadistica-icono">📧</span>
+                <div class="estadistica-info">
+                    <span class="estadistica-valor" id="totalEmailStat">0</span>
+                    <span class="estadistica-etiqueta">Contactos Registrados</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
         <!-- ============================================ -->
         <!-- ACTIVIDAD 1: FORMULARIO DE REGISTRO (15 PUNTOS) -->
@@ -81,6 +121,7 @@
 
             <div id="mensajeFormulario" class="mensaje-formulario"></div>
         </section>
+        
 
         <!-- ============================================ -->
         <!-- ACTIVIDAD 2: TABLA DE JUGADORES (10 PUNTOS) -->
@@ -103,6 +144,7 @@
                             <th>Valor Insc.</th>
                             <th>Email</th>
                             <th>Recaudación</th>
+                            <th>Acciones</th>
                         </tr>
                     </thead>
                    
@@ -113,7 +155,29 @@
             </div>
         </section>
 
+    <section class="card tarjetas-card">
+        <div class="card-header">
+            <h2>🎴 Tarjetas de Torneos</h2>
+            <p class="card-subtitle">Visualiza los torneos en formato de tarjetas</p>
+        </div>
+            <!-- Barra de búsqueda -->
+        <div class="buscador-container">
+            <div class="buscador">
+                <span class="buscador-icono">🔍</span>
+                <input type="text" id="buscadorInput" placeholder="Buscar por nombre o categoría..." oninput="buscarTorneos()">
+                <button class="buscador-limpiar" onclick="limpiarBusqueda()">✕</button>
+            </div>
+            <p id="resultadosBusqueda" class="resultados-busqueda"></p>
+        </div>
+
+        <div id="contenedorTarjetas" class="tarjetas-container">
+            <!-- Las tarjetas se generarán dinámicamente desde JavaScript -->
+        </div>
+    </section>
+
+
     </main>
+    
 
     <!-- ============================================ -->
     <!-- ENLACE AL ARCHIVO DE JAVASCRIPT -->
